@@ -4,35 +4,14 @@ SYMMETRIC DIFFERENCE
 """
 
 
-
-
-if __name__ == '__main__':
-    M = int(input())
-    m = input().split()
-    N = int(input())
-    n = input().split()
-
-    m = map(int,m)
-    n = map(int,n)
-
-    n = set(n)
-    m = set(m)
-
-    diff = n.difference(m) | m.difference(n)
-
-    listeddiff = list(diff)
-    
-    for i in range(len(listeddiff)):
-        valor_actual = listeddiff[i]
-        posicion_actual = i
-        while posicion_actual > 0 and listeddiff[posicion_actual -1] > valor_actual:
-            listeddiff[posicion_actual] = listeddiff[posicion_actual-1]
-            posicion_actual -=1
-        listeddiff[posicion_actual] = valor_actual
-            
-
-    for i in range(len(listeddiff)):
-            print(listeddiff[i])
+n = int(input())
+n_set = set(map(int,input().split()))
+m = int(input())
+m_set = set(map(int,input().split()))
+result = m_set.symmetric_difference(n_set)
+result = list(sorted(list(result)))
+for i in result:
+    print(i)
 
 
 
